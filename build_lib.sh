@@ -1,3 +1,8 @@
+git clean -d -f
+git chechout -- .
+git pull origin master
+git submodule  update --init
+
 #https://cmake.org/download/
 #curl -sSL https://cmake.org/files/v3.5/cmake-3.5.2-Linux-x86_64.tar.gz | sudo tar -xzC  ./
 

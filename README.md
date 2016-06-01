@@ -4,3 +4,7 @@ https://github.com/BelledonneCommunications
 
 
 https://github.com/BelledonneCommunications/bctoolbox
+
+
+
+https://voipmagazine.wordpress.com/tag/rtp-echo/
