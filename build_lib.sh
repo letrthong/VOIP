@@ -5,35 +5,48 @@
 
 PREFIX=/home/test/VOIP
 ROOT=/home/test/VOIP
+
+call_makefile()
+{
+  make clean
+  make
+  make install
+  make clean
+}
+
+checkCode()
+{
+  if [ $? != 0 ]; then
+	exit 1
+  fi
+}
+
+
 cd ./CUnit-2.1-2
 libtoolize -f -c -i 
 aclocal 
 autoconf 
 automake --gnu --add-missing 
 
-./configure  --prefix=${PREFIX} \
-	     --libdir=${PREFIX}/opt/lib/ \
-	     --includedir=${PREFIX}/opt/include/ 
-make
-make install
-make clean
+./configure  --prefix=${PREFIX}/out \
+	     --libdir=${PREFIX}/out/lib/ \
+	     --includedir=${PREFIX}/out/include
+call_makefile
 
 cd ${ROOT}
 cd ./mbedtls
 cmake . -DCMAKE_INSTALL_PREFIX=${PREFIX}/out \
 	-DCMAKE_PREFIX_PATH=${PREFIX}/out
-make
-make install
-make clean
+
+call_makefile
 cd ${ROOT}
 cd ./bctoolbox
 cmake . -DCMAKE_INSTALL_PREFIX=${PREFIX}/out \
 	-DCMAKE_PREFIX_PATH=${PREFIX}/out \
-	 -DENABLE_POLARSSL=OFF -DENABLE_MBEDTLS=ON  
-make
-make install
-make clean
+	 -DENABLE_POLARSSL=OFF -DENABLE_MBEDTLS=ON
+  
 
+call_makefile
 cd ${ROOT}
 cd ortp
 ./autogen.sh
@@ -42,16 +55,13 @@ cd ${ROOT}
 cd ./ortp
 ./autogen.sh
 
-export BCTOOLBOX_LIBS=-L ${PREFIX}/usr/lib -lbctoolbox
-export BCTOOLBOX_CFLAGS=-I${PREFIX}/usr/include/
+export BCTOOLBOX_LIBS=-L${PREFIX}/out/lib -lbctoolbox
+export BCTOOLBOX_CFLAGS=-I${PREFIX}/out/include/
 ./configure  --prefix=${PREFIX} \
 	     --libdir=${PREFIX}/out/lib/ \
 	     --includedir=${PREFIX}/out/include/ 
 
-make clean
-make
-make install
-make
+call_makefile
 
 
 
