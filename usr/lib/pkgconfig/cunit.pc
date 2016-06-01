@@ -1,0 +1,10 @@
+prefix=/home/test/VOIP
+exec_prefix=${prefix}
+libdir=/home/test/VOIP/usr/lib
+includedir=/home/test/VOIP/usr/include
+
+Name: CUnit
+Description: C Unit Testing Framework
+Version: 2.1
+Libs: -L${libdir} -lcunit
+Cflags: -I${includedir}
