@@ -1,0 +1,9 @@
+# This is a comment
+prefix=/home/test/VOIP/opt
+
+Name:  bctoolbox-tester
+Description: A common set of tester wrappers used by Belledonne Communications's softwares
+Requires.private: cunit
+Version: 0.0.3
+Libs: -L/home/test/VOIP/opt/lib/i386-linux-gnu -lbctoolbox-tester
+Cflags: -I/home/test/VOIP/opt/include

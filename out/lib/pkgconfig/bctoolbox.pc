@@ -1,0 +1,9 @@
+# This is a comment
+prefix=/home/test/VOIP/opt
+
+Name:  bctoolbox
+Description: A common set of tools used by Belledonne Communications's softwares
+Version: 0.0.3
+Libs: -L/home/test/VOIP/opt/lib/i386-linux-gnu -lbctoolbox
+Libs.private: 
+Cflags: -I/home/test/VOIP/opt/include

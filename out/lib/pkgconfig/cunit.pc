@@ -1,7 +1,7 @@
 prefix=/home/test/VOIP
 exec_prefix=${prefix}
-libdir=/home/test/VOIP/usr/lib
-includedir=/home/test/VOIP/usr/include
+libdir=/home/test/VOIP/opt/lib
+includedir=/home/test/VOIP/opt/include
 
 Name: CUnit
 Description: C Unit Testing Framework

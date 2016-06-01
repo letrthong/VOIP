@@ -20,15 +20,15 @@ make clean
 
 cd ${ROOT}
 cd ./mbedtls
-cmake . -DCMAKE_INSTALL_PREFIX=${PREFIX}/opt \
-	-DCMAKE_PREFIX_PATH=${PREFIX}/opt
+cmake . -DCMAKE_INSTALL_PREFIX=${PREFIX}/out \
+	-DCMAKE_PREFIX_PATH=${PREFIX}/out
 make
 make install
 make clean
 cd ${ROOT}
 cd ./bctoolbox
-cmake . -DCMAKE_INSTALL_PREFIX=${PREFIX}/opt \
-	-DCMAKE_PREFIX_PATH=${PREFIX}/opt \
+cmake . -DCMAKE_INSTALL_PREFIX=${PREFIX}/out \
+	-DCMAKE_PREFIX_PATH=${PREFIX}/out \
 	 -DENABLE_POLARSSL=OFF -DENABLE_MBEDTLS=ON  
 make
 make install
@@ -45,7 +45,13 @@ cd ./ortp
 export BCTOOLBOX_LIBS=-L ${PREFIX}/usr/lib -lbctoolbox
 export BCTOOLBOX_CFLAGS=-I${PREFIX}/usr/include/
 ./configure  --prefix=${PREFIX} \
-	     --libdir=${PREFIX}/opt/lib/ \
-	     --includedir=${PREFIX}/opt/include/ 
+	     --libdir=${PREFIX}/out/lib/ \
+	     --includedir=${PREFIX}/out/include/ 
+
+make clean
+make
+make install
+make
+
 
 
