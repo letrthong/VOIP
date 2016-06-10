@@ -1,0 +1,10 @@
+wget http://downloads.sourceforge.net/project/cunit/CUnit/2.1-2/CUnit-2.1-2-src.tar.bz2
+tar xvfj CUnit-2.1-2.tar.bz2
+cd CUnit-2.1-2
+libtoolize -f -c -i \
+  && aclocal \
+  && autoconf \
+  && automake --gnu --add-missing \
+  && ./configure --prefix=/usr/local \
+  && make \
+  && make install
