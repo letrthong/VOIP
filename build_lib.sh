@@ -1,7 +1,11 @@
 git clean -d -f
-git chechout -- .
+git checkout -- .
 git pull origin master
 git submodule  update --init
+
+sudo apt-get install cmake
+sudo apt-get install automake
+sudo apt-get install libtool
 
 #https://cmake.org/download/
 #curl -sSL https://cmake.org/files/v3.5/cmake-3.5.2-Linux-x86_64.tar.gz | sudo tar -xzC  ./
@@ -26,7 +30,8 @@ checkCode()
   fi
 }
 
-
+echo ""
+echo "build cunit"
 cd ./CUnit-2.1-2
 libtoolize -f -c -i 
 aclocal 
@@ -38,6 +43,8 @@ automake --gnu --add-missing
 	     --includedir=${PREFIX}/out/include
 call_makefile
 
+echo ""
+echo "build mbedtls"
 cd ${ROOT}
 cd ./mbedtls
 cmake . -DCMAKE_INSTALL_PREFIX=${PREFIX}/out \
