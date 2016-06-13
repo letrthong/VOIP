@@ -1,3 +1,4 @@
+echo "setup tools"
 git clean -d -f
 git checkout -- .
 git pull origin master
@@ -7,13 +8,14 @@ sudo apt-get install cmake
 sudo apt-get install automake
 sudo apt-get install libtool
 
+
 #https://cmake.org/download/
 #curl -sSL https://cmake.org/files/v3.5/cmake-3.5.2-Linux-x86_64.tar.gz | sudo tar -xzC  ./
 
 #http://blog.cleverelephant.ca/2014/12/building-cunit-from-source.html
 
-PREFIX=/home/test/VOIP
-ROOT=/home/test/VOIP
+PREFIX=${PWD}/
+ROOT=${PWD}/
 
 call_makefile()
 {
