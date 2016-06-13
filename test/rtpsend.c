@@ -25,6 +25,8 @@
 #include <sys/types.h>
 #include <sys/time.h>
 #include <stdio.h>
+#else
+#include <unistd.h>
 #endif
 
 int runcond=1;
@@ -99,20 +101,28 @@ int main(int argc, char *argv[])
 	}
 
 	signal(SIGINT,stophandler);
+         
+        printf("Sending data\n");
 	while( ((i=fread(buffer,1,160,infile))>0) && (runcond) )
-	{
+	{     
+                printf("Sending: size = %d\n",i);
 		rtp_session_send_with_ts(session,buffer,i,user_ts);
 		user_ts+=160;
 		if (clockslide!=0 && user_ts%(160*50)==0){
 			ortp_message("Clock sliding of %i miliseconds now",clockslide);
 			rtp_session_make_time_distorsion(session,clockslide);
 		}
+                 printf("Sending: line = %d\n",__LINE__);
+
 		/*this will simulate a burst of late packets */
 		if (jitter && (user_ts%(8000)==0)) {
 			ortp_message("Simulating late packets now (%i milliseconds)",jitter);
 			ortp_sleep_ms(jitter);
 		}
+                 printf("Sending: line = %d\n",__LINE__);
+
 	}
+
 
 	fclose(infile);
 	rtp_session_destroy(session);

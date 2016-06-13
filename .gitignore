@@ -3,3 +3,7 @@
 src/GenerateCode/cpp/
 
 *response.json
+
+CUnit-2.1-2
+bctoolbox
+mbedtls

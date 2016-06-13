@@ -17,6 +17,7 @@ sudo apt-get install libtool
 PREFIX=${PWD}/
 ROOT=${PWD}/
 
+mkdir -p out
 call_makefile()
 {
   make clean

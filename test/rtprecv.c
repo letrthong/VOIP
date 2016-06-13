@@ -163,6 +163,7 @@ int main(int argc, char*argv[])
 			if (err>0) stream_received=1;
 			/* this is to avoid to write to disk some silence before the first RTP packet is returned*/	
 			if ((stream_received) && (err>0)) {
+                                printf("Receiving: size = %d\n",err);
 				size_t ret = fwrite(buffer,1,err,outfile);
 				if (sound_fd>0){
 					ret = write(sound_fd,buffer,err);
