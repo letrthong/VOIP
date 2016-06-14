@@ -1,4 +1,7 @@
 echo "setup tools"
+
+requirement() 
+{
 git clean -d -f
 git checkout -- .
 git pull origin master
@@ -8,6 +11,7 @@ sudo apt-get install cmake
 sudo apt-get install automake
 sudo apt-get install libtool
 
+}
 
 #https://cmake.org/download/
 #curl -sSL https://cmake.org/files/v3.5/cmake-3.5.2-Linux-x86_64.tar.gz | sudo tar -xzC  ./
@@ -17,13 +21,13 @@ sudo apt-get install libtool
 PREFIX=${PWD}/
 ROOT=${PWD}/
 
+rm -r out
 mkdir -p out
 call_makefile()
 {
   make clean
   make
   make install
-  make clean
 }
 
 checkCode()
@@ -60,6 +64,9 @@ cmake . -DCMAKE_INSTALL_PREFIX=${PREFIX}/out \
 	-DCMAKE_PREFIX_PATH=${PREFIX}/out \
 	 -DENABLE_POLARSSL=OFF -DENABLE_MBEDTLS=ON
   
+cp -f src/libbctoolbox.* ../out/lib
+cp -rf include/bctoolbox  ../out/include
+
 
 call_makefile
 cd ${ROOT}
