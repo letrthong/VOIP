@@ -4,6 +4,10 @@ src/GenerateCode/cpp/
 
 *response.json
 
-CUnit-2.1-2
+CUnit-2.1-2/
+CUnit-2.1-2/Examples
 bctoolbox
 mbedtls
+out
+test/*.mp3
+

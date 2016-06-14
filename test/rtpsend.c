@@ -21,12 +21,15 @@
 #include <signal.h>
 #include <stdlib.h>
 
-#ifndef _WIN32 
+#ifndef _WIN32
 #include <sys/types.h>
 #include <sys/time.h>
 #include <stdio.h>
 #else
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #endif
 
 int runcond=1;
@@ -43,7 +46,7 @@ int main(int argc, char *argv[])
 	RtpSession *session;
 	unsigned char buffer[160];
 	int i;
-	FILE *infile;
+
 	char *ssrc;
 	uint32_t user_ts=0;
 	int clockslide=0;
@@ -71,40 +74,38 @@ int main(int argc, char *argv[])
 			jitter=atoi(argv[i]);
 		}
 	}
-	
+
 	ortp_init();
 	ortp_scheduler_init();
 	ortp_set_log_level_mask(NULL, ORTP_MESSAGE|ORTP_WARNING|ORTP_ERROR);
-	session=rtp_session_new(RTP_SESSION_SENDONLY);	
-	
+	session=rtp_session_new(RTP_SESSION_SENDONLY);
+
 	rtp_session_set_scheduling_mode(session,1);
 	rtp_session_set_blocking_mode(session,1);
 	rtp_session_set_connected_mode(session,TRUE);
 	rtp_session_set_remote_addr(session,argv[2],atoi(argv[3]));
 	rtp_session_set_payload_type(session,0);
-	
+
 	ssrc=getenv("SSRC");
 	if (ssrc!=NULL) {
 		printf("using SSRC=%i.\n",atoi(ssrc));
 		rtp_session_set_ssrc(session,atoi(ssrc));
 	}
-		
-	#ifndef _WIN32
-	infile=fopen(argv[1],"r");
-	#else
-	infile=fopen(argv[1],"rb");
-	#endif
 
-	if (infile==NULL) {
+
+	int infile = open(argv[1],O_RDONLY);
+
+	if (infile == -1) {
 		perror("Cannot open file");
 		return -1;
 	}
 
 	signal(SIGINT,stophandler);
-         
-        printf("Sending data\n");
-	while( ((i=fread(buffer,1,160,infile))>0) && (runcond) )
-	{     
+
+    printf("Sending data\n");
+
+	while( (( i= read(infile,buffer,160) )>0) && (runcond) )
+	{
                 printf("Sending: size = %d\n",i);
 		rtp_session_send_with_ts(session,buffer,i,user_ts);
 		user_ts+=160;
@@ -112,22 +113,24 @@ int main(int argc, char *argv[])
 			ortp_message("Clock sliding of %i miliseconds now",clockslide);
 			rtp_session_make_time_distorsion(session,clockslide);
 		}
-                 printf("Sending: line = %d\n",__LINE__);
+
+        printf("Sending: line = %d\n",__LINE__);
 
 		/*this will simulate a burst of late packets */
 		if (jitter && (user_ts%(8000)==0)) {
 			ortp_message("Simulating late packets now (%i milliseconds)",jitter);
 			ortp_sleep_ms(jitter);
 		}
-                 printf("Sending: line = %d\n",__LINE__);
+
+        printf("Sending: line = %d\n",__LINE__);
 
 	}
 
-
-	fclose(infile);
+	close(infile);
 	rtp_session_destroy(session);
 	ortp_exit();
 	ortp_global_stats_display();
 
 	return 0;
 }
+

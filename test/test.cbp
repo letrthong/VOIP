@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="test" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/test" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/test" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="../out/include/CUnit/Automated.h" />
+		<Unit filename="../out/include/CUnit/Basic.h" />
+		<Unit filename="../out/include/CUnit/CUError.h" />
+		<Unit filename="../out/include/CUnit/CUnit.h" />
+		<Unit filename="../out/include/CUnit/CUnit_intl.h" />
+		<Unit filename="../out/include/CUnit/Console.h" />
+		<Unit filename="../out/include/CUnit/MyMem.h" />
+		<Unit filename="../out/include/CUnit/TestDB.h" />
+		<Unit filename="../out/include/CUnit/TestRun.h" />
+		<Unit filename="../out/include/CUnit/Util.h" />
+		<Unit filename="../out/include/bctoolbox/Makefile.am" />
+		<Unit filename="../out/include/bctoolbox/Makefile.in" />
+		<Unit filename="../out/include/bctoolbox/bc_vfs.h" />
+		<Unit filename="../out/include/bctoolbox/crypto.h" />
+		<Unit filename="../out/include/bctoolbox/list.h" />
+		<Unit filename="../out/include/bctoolbox/logging.h" />
+		<Unit filename="../out/include/bctoolbox/map.h" />
+		<Unit filename="../out/include/bctoolbox/port.h" />
+		<Unit filename="../out/include/bctoolbox/tester.h" />
+		<Unit filename="../out/include/mbedtls/aes.h" />
+		<Unit filename="../out/include/mbedtls/aesni.h" />
+		<Unit filename="../out/include/mbedtls/arc4.h" />
+		<Unit filename="../out/include/mbedtls/asn1.h" />
+		<Unit filename="../out/include/mbedtls/asn1write.h" />
+		<Unit filename="../out/include/mbedtls/base64.h" />
+		<Unit filename="../out/include/mbedtls/bignum.h" />
+		<Unit filename="../out/include/mbedtls/blowfish.h" />
+		<Unit filename="../out/include/mbedtls/bn_mul.h" />
+		<Unit filename="../out/include/mbedtls/camellia.h" />
+		<Unit filename="../out/include/mbedtls/ccm.h" />
+		<Unit filename="../out/include/mbedtls/certs.h" />
+		<Unit filename="../out/include/mbedtls/check_config.h" />
+		<Unit filename="../out/include/mbedtls/cipher.h" />
+		<Unit filename="../out/include/mbedtls/cipher_internal.h" />
+		<Unit filename="../out/include/mbedtls/compat-1.3.h" />
+		<Unit filename="../out/include/mbedtls/config.h" />
+		<Unit filename="../out/include/mbedtls/ctr_drbg.h" />
+		<Unit filename="../out/include/mbedtls/debug.h" />
+		<Unit filename="../out/include/mbedtls/des.h" />
+		<Unit filename="../out/include/mbedtls/dhm.h" />
+		<Unit filename="../out/include/mbedtls/ecdh.h" />
+		<Unit filename="../out/include/mbedtls/ecdsa.h" />
+		<Unit filename="../out/include/mbedtls/ecjpake.h" />
+		<Unit filename="../out/include/mbedtls/ecp.h" />
+		<Unit filename="../out/include/mbedtls/entropy.h" />
+		<Unit filename="../out/include/mbedtls/entropy_poll.h" />
+		<Unit filename="../out/include/mbedtls/error.h" />
+		<Unit filename="../out/include/mbedtls/gcm.h" />
+		<Unit filename="../out/include/mbedtls/havege.h" />
+		<Unit filename="../out/include/mbedtls/hmac_drbg.h" />
+		<Unit filename="../out/include/mbedtls/md.h" />
+		<Unit filename="../out/include/mbedtls/md2.h" />
+		<Unit filename="../out/include/mbedtls/md4.h" />
+		<Unit filename="../out/include/mbedtls/md5.h" />
+		<Unit filename="../out/include/mbedtls/md_internal.h" />
+		<Unit filename="../out/include/mbedtls/memory_buffer_alloc.h" />
+		<Unit filename="../out/include/mbedtls/net.h" />
+		<Unit filename="../out/include/mbedtls/oid.h" />
+		<Unit filename="../out/include/mbedtls/padlock.h" />
+		<Unit filename="../out/include/mbedtls/pem.h" />
+		<Unit filename="../out/include/mbedtls/pk.h" />
+		<Unit filename="../out/include/mbedtls/pk_internal.h" />
+		<Unit filename="../out/include/mbedtls/pkcs11.h" />
+		<Unit filename="../out/include/mbedtls/pkcs12.h" />
+		<Unit filename="../out/include/mbedtls/pkcs5.h" />
+		<Unit filename="../out/include/mbedtls/platform.h" />
+		<Unit filename="../out/include/mbedtls/ripemd160.h" />
+		<Unit filename="../out/include/mbedtls/rsa.h" />
+		<Unit filename="../out/include/mbedtls/sha1.h" />
+		<Unit filename="../out/include/mbedtls/sha256.h" />
+		<Unit filename="../out/include/mbedtls/sha512.h" />
+		<Unit filename="../out/include/mbedtls/ssl.h" />
+		<Unit filename="../out/include/mbedtls/ssl_cache.h" />
+		<Unit filename="../out/include/mbedtls/ssl_ciphersuites.h" />
+		<Unit filename="../out/include/mbedtls/ssl_cookie.h" />
+		<Unit filename="../out/include/mbedtls/ssl_internal.h" />
+		<Unit filename="../out/include/mbedtls/ssl_ticket.h" />
+		<Unit filename="../out/include/mbedtls/threading.h" />
+		<Unit filename="../out/include/mbedtls/timing.h" />
+		<Unit filename="../out/include/mbedtls/version.h" />
+		<Unit filename="../out/include/mbedtls/x509.h" />
+		<Unit filename="../out/include/mbedtls/x509_crl.h" />
+		<Unit filename="../out/include/mbedtls/x509_crt.h" />
+		<Unit filename="../out/include/mbedtls/x509_csr.h" />
+		<Unit filename="../out/include/mbedtls/xtea.h" />
+		<Unit filename="../out/include/ortp/Makefile" />
+		<Unit filename="../out/include/ortp/Makefile.am" />
+		<Unit filename="../out/include/ortp/Makefile.in" />
+		<Unit filename="../out/include/ortp/b64.h" />
+		<Unit filename="../out/include/ortp/event.h" />
+		<Unit filename="../out/include/ortp/logging.h" />
+		<Unit filename="../out/include/ortp/ortp.h" />
+		<Unit filename="../out/include/ortp/payloadtype.h" />
+		<Unit filename="../out/include/ortp/port.h" />
+		<Unit filename="../out/include/ortp/rtcp.h" />
+		<Unit filename="../out/include/ortp/rtp.h" />
+		<Unit filename="../out/include/ortp/rtpprofile.h" />
+		<Unit filename="../out/include/ortp/rtpsession.h" />
+		<Unit filename="../out/include/ortp/rtpsignaltable.h" />
+		<Unit filename="../out/include/ortp/sessionset.h" />
+		<Unit filename="../out/include/ortp/str_utils.h" />
+		<Unit filename="../out/include/ortp/telephonyevents.h" />
+		<Unit filename="build.sh" />
+		<Unit filename="out.mp3" />
+		<Unit filename="recv" />
+		<Unit filename="recv.sh" />
+		<Unit filename="rtprecv.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="rtpsend.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="send" />
+		<Unit filename="send.sh" />
+		<Unit filename="send.wav" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
