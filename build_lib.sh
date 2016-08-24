@@ -70,6 +70,10 @@ cp -rf include/bctoolbox  ../out/include
 
 call_makefile
 cd ${ROOT}
+
+echo ""
+echo "build ortp"
+
 cd ortp
 ./autogen.sh
 
